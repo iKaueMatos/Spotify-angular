@@ -22,5 +22,9 @@ ou
 ```bash
 ng serve
 ```
+
+## Status da aplicação
+* Em desenvolvimento
+  
 ## Contribuindo
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue para relatar problemas ou enviar um pull request com melhorias.
