@@ -1,0 +1,21 @@
+@import './_color-variable';
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', system-ui, -apple-system, 'Open Sans', sans-serif, 'Arial';
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: #fff;
+}
+
+.flex {
+  display: flex;
+
+  &-center {
+    align-items: center;
+    justify-content: center;
+  }
+}
