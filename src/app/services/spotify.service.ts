@@ -17,7 +17,7 @@ export class SpotifyService {
 
   async inicializeUser(): Promise<boolean> {
     try {
-      if (this.user) {
+      if (!!this.user) {
         return true;
       }
 
@@ -34,7 +34,6 @@ export class SpotifyService {
       return false;
     }
   }
-
 
   async getSpotifyUser() {
     const userInfo = await this.spotifyApi.getMe();

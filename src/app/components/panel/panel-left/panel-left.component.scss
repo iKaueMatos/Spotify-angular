@@ -1,0 +1,32 @@
+@import '../../../../assets/styles/helpers/_color-variable';
+
+$-h-spotify-logo: 120px;
+
+:host {
+  max-width: 300px;
+  min-height: 100vh;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 15px #00000012;
+
+  .menu {
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    padding: 0px 40px 0px 40px;
+
+    .image-container {
+      min-height: $-h-spotify-logo;
+
+      img {
+        width: 70%;
+        filter: brightness(0%);
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}
