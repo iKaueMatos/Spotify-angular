@@ -3,7 +3,7 @@ import { spotifyConfiguration } from '../../environments/environments';
 import Spotify from 'spotify-web-api-js';
 import { IUser } from '../models/IUser';
 import { IPlaylist } from '../models/IPlaylist';
-import { SpotifyPlaylistToPlaylist } from '../common/spotifyHelper';
+import { SpotifyPlaylistToPlaylist, SpotifyUserToUser } from '../common/spotifyHelper';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +39,7 @@ export class SpotifyService {
 
   async getSpotifyUser() {
     const userInfo = await this.spotifyApi.getMe();
+    return this.user = SpotifyUserToUser(userInfo);
   }
 
   getLoginUrl(): string {
@@ -67,6 +68,10 @@ export class SpotifyService {
 
   async searchPlaylistUser(offset = 0, limit = 50): Promise<IPlaylist[]> {
     console.log('USUARIO', this.user);
+    if (!this.user) {
+      throw new Error('User is not initialized');
+    }
+
     const playlists = await this.spotifyApi.getUserPlaylists(this.user.id, { offset, limit });
 
     return playlists.items.map(SpotifyPlaylistToPlaylist)

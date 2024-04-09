@@ -13,30 +13,26 @@ export class AuthenticatedLoadGuard implements CanLoad {
     private spotifyService: SpotifyService
   ) { }
 
-  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
+  async canLoad(route: Route, segments: UrlSegment[]): Promise<boolean> {
 
     const token = localStorage.getItem('token');
     if (!token) {
-      return this.notAuthenticated();
+      this.notAuthenticated();
+      return false;
     }
 
-    console.log(token);
+    const userCreated = await this.spotifyService.inicializeUser();
+    console.log(userCreated);
+    if (!userCreated) {
+      this.notAuthenticated();
+      return false;
+    }
 
-    return new Promise(async (res) => {
-      const userCreated = await this.spotifyService.inicializeUser();
-      if (userCreated) {
-        res(this.notAuthenticated());
-        return false;
-      }
-
-      res(true);
-      return true;
-    });
+    return true;
   }
 
   notAuthenticated() {
     localStorage.clear()
     this.router.navigate(['/login']);
-    return false;
   }
 }

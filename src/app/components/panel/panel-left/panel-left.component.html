@@ -21,19 +21,14 @@
     </span>
 
     <div class="playlist-scroll">
-      <app-button-panel
-        *ngFor="let playlist of playlists"
-        [description]="playlist.name"
-        [selectButton]="selectMenu === playlist.id"
-        (click)="goToPlaylist(playlist.id)"
-        >
-        <fa-icon
-          [icon]="playlistIcone"
-        ></fa-icon>
+      <app-button-panel *ngFor="let playlist of playlists" [description]="playlist.name"
+        [selectButton]="selectMenu === playlist.id" (click)="goToPlaylist(playlist.id)">
+        <fa-icon [icon]="playlistIcone"></fa-icon>
       </app-button-panel>
 
     </div>
   </div>
 </div>
 <div class="user-info">
+  <app-footer-user></app-footer-user>
 </div>

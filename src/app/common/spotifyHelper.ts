@@ -4,7 +4,15 @@ import { IUser } from "../models/IUser";
 export function getSpotifyUser(user: SpotifyApi.CurrentUsersProfileResponse): IUser {
   return {
     id: user.id,
-    nome: user.display_name,
+    name: user.display_name,
+    imagemUrl: user.images.pop().url
+  }
+}
+
+export function SpotifyUserToUser(user: SpotifyApi.CurrentUsersProfileResponse): IUser {
+  return {
+    id: user.id,
+    name: user.display_name,
     imagemUrl: user.images.pop().url
   }
 }

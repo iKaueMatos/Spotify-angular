@@ -1,0 +1,27 @@
+@import "../../../../../assets/styles/helpers/_color-variable";
+
+div {
+  padding: 5px 30px;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $green-700;
+
+  img {
+    flex-grow: 0;
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  span {
+    flex-grow: 1;
+    color: $white-900;
+    font-weight: bold;
+    font-size: .9rem;
+    margin-left: 20px;
+  }
+
+  .closedIcon {
+    color: $green-700;
+  }
+}
