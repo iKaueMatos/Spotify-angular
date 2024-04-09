@@ -1,6 +1,8 @@
 @import '../../../../assets/styles/helpers/_color-variable';
 
-$-h-spotify-logo: 120px;
+$h-spotify-logo: 120px;
+$h-menu-options: 150px;
+$m-between-menu: 10px;
 
 :host {
   max-width: 300px;
@@ -8,24 +10,62 @@ $-h-spotify-logo: 120px;
   overflow-y: hidden;
   display: flex;
   flex-direction: column;
+  background-color: $black-900;
   box-shadow: 1px 1px 15px #00000012;
 
   .menu {
-    flex: 1;
-    flex-direction: column;
+    flex-grow: 1;
     height: 100%;
     padding: 0px 40px 0px 40px;
+    flex-direction: column;
 
     .image-container {
-      min-height: $-h-spotify-logo;
+      min-height: $h-spotify-logo;
+      flex-direction: column;
 
       img {
-        width: 70%;
-        filter: brightness(0%);
+        width: 60%;
       }
 
       span {
         font-weight: bold;
+        color: $white-900;
+        white-space: nowrap;
+      }
+    }
+
+    .menu-container {
+      width: 100%;
+
+      &.flex {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      &.options {
+        min-height: $h-menu-options;
+
+        * {
+          margin-bottom: $m-between-menu;
+        }
+      }
+
+      .playlist-title {
+        margin: 10px 0px;
+        align-self: flex-start;
+        font-weight: bold;
+        font-size: .7rem;
+        color: $green-700;
+      }
+
+      .playlist-scroll {
+        width: 100%;
+        color: $white-900;
+
+        * {
+          margin-bottom: $m-between-menu;
+        }
       }
     }
   }

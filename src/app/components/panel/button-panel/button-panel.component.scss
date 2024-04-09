@@ -1,0 +1,35 @@
+@import "../../../../assets/styles/helpers/_color-variable";
+
+:host {
+  display: block;
+  width: 100%;
+
+  button {
+    border-radius: 8px;
+    padding: 10px 0px 10px 20px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    font-size: .8rem;
+    color: $white-900;
+    background-color: transparent;
+    cursor: pointer;
+
+    &.select {
+      cursor: pointer;
+      background-color: $green-700;
+      color: $white-900;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      width: 150px;
+      white-space: nowrap;
+      margin-left: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
