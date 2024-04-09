@@ -1,5 +1,5 @@
-import { IPlaylist } from "../models/IPlaylist";
-import { IUser } from "../models/IUser";
+import { IPlaylist } from "../Interfaces/IPlaylist";
+import { IUser } from "../Interfaces/IUser";
 
 export function getSpotifyUser(user: SpotifyApi.CurrentUsersProfileResponse): IUser {
   return {

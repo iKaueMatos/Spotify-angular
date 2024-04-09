@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { faGuitar, faHome, faMusic, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
-import { IPlaylist } from '../../../models/IPlaylist';
+import { IPlaylist } from '../../../Interfaces/IPlaylist';
 import { SpotifyService } from '../../../services/spotify.service';
 
 @Component({

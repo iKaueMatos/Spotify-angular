@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanLoad, Route, Router, UrlSegment } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SpotifyService } from '../services/spotify.service';
+import { Authentication } from '../utils/authetication';
 
 @Injectable({
   providedIn: 'root'
@@ -9,30 +10,24 @@ import { SpotifyService } from '../services/spotify.service';
 export class AuthenticatedLoadGuard implements CanLoad {
 
   constructor(
-    private router: Router,
-    private spotifyService: SpotifyService
+    private spotifyService: SpotifyService,
+    private authetication: Authentication
   ) { }
 
   async canLoad(route: Route, segments: UrlSegment[]): Promise<boolean> {
 
     const token = localStorage.getItem('token');
     if (!token) {
-      this.notAuthenticated();
+      this.authetication.notAuthenticated();
       return false;
     }
 
     const userCreated = await this.spotifyService.inicializeUser();
-    console.log(userCreated);
     if (!userCreated) {
-      this.notAuthenticated();
+      this.authetication.notAuthenticated();
       return false;
     }
 
     return true;
-  }
-
-  notAuthenticated() {
-    localStorage.clear()
-    this.router.navigate(['/login']);
   }
 }

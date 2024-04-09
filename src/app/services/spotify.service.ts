@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { spotifyConfiguration } from '../../environments/environments';
 import Spotify from 'spotify-web-api-js';
-import { IUser } from '../models/IUser';
-import { IPlaylist } from '../models/IPlaylist';
+import { IUser } from '../Interfaces/IUser';
+import { IPlaylist } from '../Interfaces/IPlaylist';
 import { SpotifyPlaylistToPlaylist, SpotifyUserToUser } from '../common/spotifyHelper';
+import { Authentication } from '../utils/authetication';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
 
-  spotifyApi: Spotify.SpotifyWebApiJs = null;
   user: IUser;
+  spotifyApi: Spotify.SpotifyWebApiJs = null;
 
-  constructor() {
+  constructor(private authetication: Authentication) {
     this.spotifyApi = new Spotify();
   }
 
@@ -28,11 +29,10 @@ export class SpotifyService {
         return false;
       }
 
-      this.setSpotifyTokenAccess(token);
+      this.authetication.setSpotifyTokenAccess(token);
       await this.getSpotifyUser();
       return !!this.user;
     } catch (error) {
-      console.error('Erro ao inicializar usuário:', error);
       return false;
     }
   }
@@ -42,32 +42,7 @@ export class SpotifyService {
     return this.user = SpotifyUserToUser(userInfo);
   }
 
-  getLoginUrl(): string {
-    const authEndpoint = `${spotifyConfiguration.authEndpoint}?`;
-    const clientId = `client_id=${spotifyConfiguration.clientId}&`;
-    const redirectURI = `redirect_uri=${encodeURIComponent(spotifyConfiguration.redirect)}&`;
-    const scopes = `scope=${spotifyConfiguration.scopes.join('%20')}&`;
-
-    const responseType = `response_type=token&show_dialog=true`;
-    return `${authEndpoint}${clientId}${redirectURI}${scopes}${responseType}`;
-  }
-
-  getTokenCallback() {
-    if (!window.location.hash) {
-      return '';
-    }
-
-    const params = window.location.hash.substring(1).split('&');
-    return params[0].split('=')[1];
-  }
-
-  setSpotifyTokenAccess(token: string) {
-    this.spotifyApi.setAccessToken(token);
-    localStorage.setItem('token', token);
-  }
-
   async searchPlaylistUser(offset = 0, limit = 50): Promise<IPlaylist[]> {
-    console.log('USUARIO', this.user);
     if (!this.user) {
       throw new Error('User is not initialized');
     }

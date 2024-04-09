@@ -10,8 +10,8 @@ describe('FooterUserComponent', () => {
     await TestBed.configureTestingModule({
       imports: [FooterUserComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(FooterUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
