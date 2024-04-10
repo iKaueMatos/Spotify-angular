@@ -28,7 +28,7 @@ export class LoginComponent {
     const token = this.authetication.getTokenCallback();
     if (!!token) {
       this.authetication.setSpotifyTokenAccess(token);
-      this.router.navigate(['/player'])
+      this.router.navigate(['/player/home'])
     }
   }
 }

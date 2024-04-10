@@ -1,8 +1,8 @@
 import { IMusic } from "./IMusic";
 
-export interface IPlaylist {
+export interface IArtist {
   id: string,
   name: string,
   avatarUrl: string,
-  music?: IMusic[]
+  musics?: IMusic[]
 }

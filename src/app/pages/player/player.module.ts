@@ -7,6 +7,8 @@ import { PanelRightComponent } from '../../components/panel/panel-right/panel-ri
 import { ButtonPanelComponent } from '../../components/panel/button-panel/button-panel.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterUserComponent } from '../../components/panel/user/footer-user/footer-user.component';
+import { HomeComponent } from '../home/home.component';
+import { TopArtistComponent } from '../../components/panel/top-artist/top-artist.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,10 @@ import { FooterUserComponent } from '../../components/panel/user/footer-user/foo
     PanelLeftComponent,
     PanelRightComponent,
     ButtonPanelComponent,
-    FooterUserComponent
+    FooterUserComponent,
+    TopArtistComponent,
+    PanelRightComponent,
+    HomeComponent
   ],
   imports: [
     PlayerRoutes,

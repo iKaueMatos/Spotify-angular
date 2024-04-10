@@ -1,4 +1,4 @@
-export interface IMusica {
+export interface IMusic {
   id: string,
   title: string,
   artist: {
