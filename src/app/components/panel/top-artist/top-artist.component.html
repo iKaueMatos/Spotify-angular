@@ -1,9 +1,11 @@
-<div class="card p-20">
-  <div class="artists flex">
-    <span class="title-bg">
-      {{ topArtists.name }}
-    </span>
-  </div>
-  <div class="image" [style.background-image]="'url(' + topArtists.avatarUrl + ')'">
+<div class="card-container">
+  <div class="card p-20">
+    <div class="artists flex">
+      <span class="title-bg">
+        {{ topArtists }}
+      </span>
+    </div>
+    <div class="image" [style.background-image]="'url(' + topArtists.avatarUrl + ')'">
+    </div>
   </div>
 </div>

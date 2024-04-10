@@ -9,7 +9,7 @@
     width: 7px;
 
     &-thumb {
-      background-color: rgba($black-900, .2);
+      background-color: transparent;
       border-radius: 10px;
     }
 
@@ -18,7 +18,7 @@
     }
   }
 
-  .my-musics {
+  .my-music {
     padding: 0px 50px;
     padding-bottom: 20px;
     width: 100%;

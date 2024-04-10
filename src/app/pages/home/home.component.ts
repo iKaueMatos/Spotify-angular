@@ -38,19 +38,19 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.musics = await this.spotifyService.searchMusics()
   }
 
-  getCurrentMusic(){
-    const sub = this.playerService.currentMusic.subscribe(musica => {
-      this.currentMusic = musica;
+  getCurrentMusic() {
+    const sub = this.playerService.currentMusic.subscribe(music => {
+      this.currentMusic = music;
     });
 
     this.subs.push(sub);
   }
 
-  getArtist(music: IMusic){
+  getArtist(music: IMusic) {
     return music.artist.map(artist => artist.name).join(', ');
   }
 
-  async executeMusic(music: IMusic){
+  async executeMusic(music: IMusic) {
     await this.spotifyService.executeMusic(music.id);
     this.playerService.setCurrentMusic(music);
   }
