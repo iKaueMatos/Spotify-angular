@@ -18,8 +18,9 @@ export class TopArtistComponent {
   }
 
   async searchArtista() {
-    const artists = await this.spotifyService.searchTopArtists();
-    if (!!artists)
+    const artists = await this.spotifyService.searchTopArtists(1);
+    if (!!artists) {
       this.topArtists = artists.pop();
+    }
   }
 }

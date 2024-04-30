@@ -56,7 +56,7 @@ export class SpotifyService {
 
   async searchTopArtists(limit = 10): Promise<any> {
     const artists = await this.spotifyApi.getMyTopArtists({ limit });
-    return artists;
+    return artists.items.map(SpotifyArtistToArtist);
   }
 
   async executeMusic(musicaId: string) {
