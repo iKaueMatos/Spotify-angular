@@ -1,0 +1,29 @@
+@import "../../../../assets/styles/helpers/_color-variable";
+
+.container {
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 0px;
+
+  &:hover {
+    background-color: $white-900;
+  }
+
+  img {
+    width: 40px;
+    border-radius: 50%;
+    flex-grow: 0;
+  }
+
+  span {
+    color: $black-800;
+    flex-grow: 1;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: .85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+  }
+}

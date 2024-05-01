@@ -8,7 +8,6 @@ import { SpotifyService } from './spotify.service';
   providedIn: 'root'
 })
 export class PlayerService {
-
   currentMusic = new BehaviorSubject<IMusic>(newMusic());
   timerId: any = null;
 
@@ -19,11 +18,9 @@ export class PlayerService {
   async getCurrentMusic() {
     clearTimeout(this.timerId);
 
-    // Obtenho a musica
     const music = await this.spotifyService.getCurrentMusic();
     this.setCurrentMusic(music);
 
-    // Causo loop
     this.timerId = setInterval(async () => {
       await this.getCurrentMusic();
     }, 5000)

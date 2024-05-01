@@ -1,11 +1,4 @@
-<!-- <div class="card-container">
-  <div class="card p-20">
-    <div class="artists flex">
-      <span class="title-bg">
-        {{ topArtists.name }}
-      </span>
-    </div>
-    <div class="image" [style.background-image]="'url(' + topArtists.avatarUrl + ')'">
-    </div>
-  </div>
-</div> -->
+<span class="title-md"> Top 5 Artistas</span>
+<div *ngFor="let topArtist of topArtists" class="mt-1">
+  <app-artist-top-image [imagemSrc]="topArtist.avatarUrl">{{ topArtist.name }}</app-artist-top-image>
+</div>

@@ -9,6 +9,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterUserComponent } from '../../components/panel/user/footer-user/footer-user.component';
 import { HomeComponent } from '../home/home.component';
 import { TopArtistComponent } from '../../components/panel/top-artist/top-artist.component';
+import { SearchRecentComponent  } from '../../components/panel/search-recent/search-recent.component';
+import { FormsModule } from '@angular/forms';
+import { PlayerCardComponent } from '../../components/panel/player-card/player-card.component';
+import { ArtistTopImageComponent } from '../../components/panel/artist-top-image/artist-top-image.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +23,15 @@ import { TopArtistComponent } from '../../components/panel/top-artist/top-artist
     FooterUserComponent,
     TopArtistComponent,
     PanelRightComponent,
-    HomeComponent
+    SearchRecentComponent,
+    HomeComponent,
+    PlayerCardComponent,
+    ArtistTopImageComponent
   ],
   imports: [
     PlayerRoutes,
     FontAwesomeModule,
+    FormsModule,
     CommonModule
   ]
 })

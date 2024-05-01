@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { spotifyConfiguration } from '../../environments/environments';
 import Spotify from 'spotify-web-api-js';
 import { IUser } from '../Interfaces/IUser';
 import { IPlaylist } from '../Interfaces/IPlaylist';
 import { SpotifyArtistToArtist, SpotifyPlaylistToPlaylist, SpotifyTrackToMusica, SpotifyUserToUser } from '../common/spotifyHelper';
 import { Authentication } from '../utils/authetication';
-import { IArtist } from '../Interfaces/IArtist';
 import { IMusic } from '../Interfaces/IMusic';
 
 @Injectable({
@@ -61,6 +59,7 @@ export class SpotifyService {
 
   async executeMusic(musicaId: string) {
     await this.spotifyApi.queue(musicaId);
+    console.log("passou aqui", musicaId);
     await this.spotifyApi.skipToNext();
   }
 

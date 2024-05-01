@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IArtist } from '../../../Interfaces/IArtist';
 import { SpotifyService } from '../../../services/spotify.service';
 import { newArtist } from '../../../common/factories';
+import { IArtist } from '../../../Interfaces/IArtist';
 
 @Component({
   selector: 'app-top-artist',
@@ -9,7 +9,7 @@ import { newArtist } from '../../../common/factories';
   styleUrl: './top-artist.component.scss'
 })
 export class TopArtistComponent {
-  topArtists: IArtist = newArtist();
+  topArtists : IArtist[] = [];
 
   constructor(private spotifyService: SpotifyService) { }
 
@@ -18,9 +18,6 @@ export class TopArtistComponent {
   }
 
   async searchArtista() {
-    const artists = await this.spotifyService.searchTopArtists(1);
-    if (!!artists) {
-      this.topArtists = artists.pop();
-    }
+    this.topArtists = await this.spotifyService.searchTopArtists(5);
   }
 }

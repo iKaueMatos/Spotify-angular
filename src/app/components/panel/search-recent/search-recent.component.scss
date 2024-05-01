@@ -1,0 +1,45 @@
+@import "../../../../assets/styles/helpers/_color-variable";
+
+:host {
+  input {
+    width: 100%;
+    padding: 10px 5px;
+    border-radius: 8px;
+    border-color: rgba($black-transparent-20, .8);
+    outline: none;
+    color: $black-900;
+    font-size: 1rem;
+    font-weight: 500;
+
+    &::placeholder{
+      color: rgba($black-transparent-20, .8);
+      font-size: .85rem;
+    }
+
+    &:focus, &:active{
+      border-color: $green-700;
+      border-width: 2px;
+    }
+  }
+
+  .suggestions {
+    flex-wrap: wrap;
+
+    span {
+      background-color: $white-900;
+      margin-right: 5px;
+      padding: 5px 10px;
+      color: rgba($black-transparent-20, .8);
+      border: 1px solid rgba($black-transparent-20, .8);
+      margin-top: 10px;
+      font-size: .9rem;
+      border-radius: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($black-transparent-20, .8);
+        color: $white-900;
+      }
+    }
+  }
+}
