@@ -5,7 +5,7 @@ export const environment = {
 export const spotifyConfiguration = {
   clientId: 'cc1637c04deb456b83c4d489ae38385b',
   authEndpoint: 'https://accounts.spotify.com/authorize',
-  redirect: 'http://localhost:4200/login/',
+  redirect: 'https://nova-software-ecommerce-angular.vercel.app//login/',
   clientSecret: '',
   scopes: [
     "user-read-currently-playing", // musica tocando agora.
